@@ -1,6 +1,60 @@
-SHOP
+<style>
 
-<p>Cosa antes</p>
-<router-outlet name="main"></router-outlet>
+.layout-container {
+  position: static;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
 
-<p>cosa después</p>
+.layout-sidenav-content {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  top: 60px;
+  left: 501px;
+  right: 0;
+  height: 100%;
+  background: #ccc;
+}
+
+.layout-topbar {
+  position: fixed;
+  top: 0;
+  height: 60px;
+  left: 501px;
+  right: 0;
+  background: #ddd;
+}
+
+.layout-sidenav {
+  padding: 20px;
+  width: 500px;
+}
+
+</style>
+<mat-drawer-container class="layout-container" autosize>
+    <mat-drawer opened="true" #drawer class="layout-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+      <p>Lorem, ipsum dolor sit amet consectetur.</p>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-drawer>
+
+    <div class="layout-topbar">
+      <mat-toolbar>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+         <mat-icon>menu</mat-icon>
+       </button>
+        <span>My Application</span>
+      </mat-toolbar>    
+    </div>
+  
+    <div class="layout-sidenav-content">
+        <router-outlet name="main"></router-outlet>
+    </div>
+  
+  </mat-drawer-container>

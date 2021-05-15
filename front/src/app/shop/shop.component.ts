@@ -9,6 +9,7 @@ import { CustomerLoginService } from '../customer-login/customer-login.service';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
+  showFiller = true
 
   constructor(private loginService: CustomerLoginService) {
 
